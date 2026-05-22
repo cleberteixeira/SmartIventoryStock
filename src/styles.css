@@ -1,0 +1,103 @@
+@import "primeng/resources/themes/lara-light-blue/theme.css";
+@import "primeng/resources/primeng.min.css";
+@import "primeicons/primeicons.css";
+
+:root {
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --sidebar-bg: #ffffff;
+  --sidebar-color: #64748b;
+  --sidebar-active-bg: #eff6ff;
+  --sidebar-active-color: #2563eb;
+  --topbar-bg: #ffffff;
+  --page-bg: #f8fafc;
+  --text-main: #1e293b;
+  --border-color: #e2e8f0;
+  --primary-color: #2563eb;
+  --border-radius-btn: 12px;
+}
+
+.dark-mode {
+  --sidebar-bg: #0f172a;
+  --sidebar-color: #94a3b8;
+  --sidebar-active-bg: #1e293b;
+  --sidebar-active-color: #3b82f6;
+  --topbar-bg: #1e293b;
+  --page-bg: #020617;
+  --text-main: #f1f5f9;
+  --border-color: #334155;
+}
+
+/* Utilitários Flex (Garantia caso PrimeFlex falhe) */
+.flex { display: flex !important; }
+.flex-column { flex-direction: column !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-between { justify-content: space-between !important; }
+.gap-2 { gap: 0.5rem !important; }
+.gap-3 { gap: 1rem !important; }
+.w-full { width: 100% !important; }
+.mt-2 { margin-top: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--page-bg);
+  color: var(--text-main);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.25rem;
+}
+
+.text-secondary {
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.p-button {
+  border-radius: var(--border-radius-btn) !important;
+  padding: 0.75rem 1.5rem !important;
+  font-weight: 700 !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.p-button:not(:disabled):hover {
+  transform: translateY(-2px) !important;
+  filter: brightness(1.1) !important;
+  box-shadow: 0 8px 15px -5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.p-button.p-button-success { background: #059669 !important; }
+.p-button.p-button-info { background: #4f46e5 !important; }
+.p-button.p-button-help { background: #9333ea !important; }
+.p-button.p-button-primary { background: #2563eb !important; }
+
+.p-card {
+  background: var(--topbar-bg) !important;
+  color: var(--text-main) !important;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1) !important;
+  border-radius: 16px !important;
+}
+
+.p-datatable .p-datatable-thead > tr > th {
+  background: var(--page-bg) !important;
+  color: #64748b !important;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}

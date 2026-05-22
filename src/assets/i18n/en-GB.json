@@ -1,0 +1,29 @@
+{
+  "MENU": {
+    "DASHBOARD": "Dashboard",
+    "PRODUCTS": "Products",
+    "ASSETS": "Assets (ITAM)",
+    "LOCATIONS": "Locations",
+    "EMPLOYEES": "Staff",
+    "STOCK": "Stock Movement",
+    "ASSIGNMENT": "Assignment",
+    "CHECKIN": "Returns",
+    "MAINTENANCE": "Maintenance",
+    "TRACEABILITY": "Traceability",
+    "INVENTORY": "Stocktake",
+    "AUDIT": "Audit Log",
+    "REPORTS": "Reports",
+    "USERS": "User Management",
+    "HELP": "Help Centre"
+  },
+  "COMMON": {
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "EDIT": "Edit",
+    "SEARCH": "Search",
+    "LOADING": "Loading...",
+    "SUCCESS": "Success",
+    "ERROR": "Error"
+  }
+}

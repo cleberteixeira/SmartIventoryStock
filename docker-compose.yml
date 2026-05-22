@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: erp_wms
+    ports:
+      - "5432:5432"
+
+  catalog-service:
+    build:
+      context: .
+      dockerfile: apps/catalog-service/Dockerfile
+    environment:
+      DATABASE_URL: postgresql://admin:password@postgres:5432/erp_wms
+    depends_on:
+      - postgres
+
+  stock-service:
+    build:
+      context: .
+      dockerfile: apps/stock-service/Dockerfile
+    depends_on:
+      - postgres
+
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    ports:
+      - "4200:80"

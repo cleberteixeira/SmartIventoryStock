@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Category {
+  FOOD
+  ELECTRONICS
+  OFFICE
+  CLEANING
+}
+
+enum UnitMeasure {
+  UN
+  KG
+  L
+  CX
+}
+
+enum MovementType {
+  ENTRY
+  EXIT
+  TRANSFER
+  ADJUSTMENT
+}
+
+enum SessionStatus {
+  OPEN
+  IN_PROGRESS
+  CLOSED
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  sku          String   @unique
+  ean          String?
+  name         String
+  category     Category
+  unitMeasure  UnitMeasure
+  minStock     Int      @default(0)
+  status       String   @default("ACTIVE")
+  attributes   Json?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  stockLevels  StockLevel[]
+  movements    StockMovement[]
+  inventoryItems InventoryItem[]
+}
+
+model StockLevel {
+  id           String   @id @default(uuid())
+  productId    String
+  locationId   String
+  quantity     Float
+  batchNumber  String?
+  expiryDate   DateTime?
+  serialNumber String?
+
+  product      Product  @relation(fields: [productId], references: [id])
+  
+  @@unique([productId, locationId, batchNumber, serialNumber])
+}
+
+model StockMovement {
+  id           String       @id @default(uuid())
+  productId    String
+  fromLocation String?
+  toLocation   String?
+  quantity     Float
+  type         MovementType
+  batchNumber  String?
+  serialNumber String?
+  reason       String
+  userId       String
+  timestamp    DateTime     @default(now())
+
+  product      Product      @relation(fields: [productId], references: [id])
+}
+
+model InventorySession {
+  id          String        @id @default(uuid())
+  warehouseId String
+  status      SessionStatus @default(OPEN)
+  startDate   DateTime      @default(now())
+  endDate     DateTime?
+  startedBy   String
+
+  items       InventoryItem[]
+}
+
+model InventoryItem {
+  id              String   @id @default(uuid())
+  sessionId       String
+  productId       String
+  locationId      String
+  expectedQuantity Float
+  countedQuantity  Float
+  difference      Float
+  countedBy       String
+  timestamp       DateTime @default(now())
+
+  session         InventorySession @relation(fields: [sessionId], references: [id])
+  product         Product          @relation(fields: [productId], references: [id])
+}

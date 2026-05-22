@@ -1,0 +1,29 @@
+{
+  "MENU": {
+    "DASHBOARD": "Painel de Controlo",
+    "PRODUCTS": "Produtos",
+    "ASSETS": "Ativos (ITAM)",
+    "LOCATIONS": "Localizações",
+    "EMPLOYEES": "Colaboradores",
+    "STOCK": "Movimentação",
+    "ASSIGNMENT": "Atribuição",
+    "CHECKIN": "Devolução",
+    "MAINTENANCE": "Manutenção",
+    "TRACEABILITY": "Rastreabilidade",
+    "INVENTORY": "Inventário",
+    "AUDIT": "Auditoria",
+    "REPORTS": "Relatórios",
+    "USERS": "Utilizadores",
+    "HELP": "Ajuda"
+  },
+  "COMMON": {
+    "SAVE": "Guardar",
+    "CANCEL": "Cancelar",
+    "DELETE": "Eliminar",
+    "EDIT": "Editar",
+    "SEARCH": "Pesquisar",
+    "LOADING": "A carregar...",
+    "SUCCESS": "Sucesso",
+    "ERROR": "Erro"
+  }
+}
