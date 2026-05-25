@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npx ng build --configuration production",
+  "outputDirectory": "dist/dyad-angular-template",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
